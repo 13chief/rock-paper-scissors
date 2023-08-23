@@ -77,10 +77,10 @@ function game() {
         playRound(playerSelection, computerSelection);
     }
     if (playerScore > computerScore) {
-        console.log("Humanity triumphs over Robots!");
+        console.log("Humanity has won!");
     } else if (playerScore < computerScore) {
-        console.log("Robots dominate over Humanity!");
+        console.log("Robots dominate!");
     } else {
-        console.log("It's a tie! Humanity and Robots share the victory.");
+        console.log("It's a tie!");
     }
 }
