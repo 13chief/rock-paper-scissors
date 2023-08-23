@@ -57,13 +57,18 @@ function playRound(playerSelection, computerSelection) {
     } else if (result.includes('Robots')) {
         computerScore++;
     }
-    
-    console.log(result);
+    if (result.includes('Tie')) {
+        playerScore++;
+        computerScore++;
+    } 
+    console.log(result + '\n' + 'Humanity: ' + playerScore + '\n' + 'Robots: ' + computerScore);
 }
 
 function playerPlay() {
     let playerSelection = prompt('Choose rock, paper, or scissors: ').toLowerCase();
-    if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
+    if (playerSelection === 'rock' || 
+        playerSelection === 'paper' || 
+        playerSelection === 'scissors') {
         return playerSelection;
     } else {
         return 'Invalid input. Please try again.';
