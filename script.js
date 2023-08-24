@@ -75,6 +75,11 @@ function playerPlay() {
     }
 }
 
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+}
+
 function game() {
     for (let i = 0; i < 5; i++) { 
         let computerSelection = getComputerChoice();
@@ -83,9 +88,12 @@ function game() {
     }
     if (playerScore > computerScore) {
         console.log("Humanity has won!");
+        reset();
     } else if (playerScore < computerScore) {
         console.log("Robots dominate!");
+        reset();
     } else {
         console.log("It's a tie!");
+        reset();
     }
 }
