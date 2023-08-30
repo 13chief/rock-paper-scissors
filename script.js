@@ -46,12 +46,31 @@ function getWinner(playerSelection, computerSelection) {
     
 }
 
+let playerScore = 0;
+let computerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
     const result = getWinner(playerSelection, computerSelection);
     const resultDiv = document.getElementById('result');
     resultDiv.textContent = result;
     
+    if (result.includes('Humanity')) {
+        playerScore++;
+    } else if (result.includes('Robots')) {
+        computerScore++;
+    }
+
+    // Update running score
+    updateScore();
+
+    // Check for winner
+    if (playerScore >= 5) {
+        resultDiv.textContent += "\nHumanity is the ultimate winner!";
+        resetGame();
+    } else if (computerScore >= 5) {
+        resultDiv.textContent += "\nRobots have dominated the game!";
+        resetGame();
+    }
 }
 
 
@@ -64,15 +83,13 @@ function playerPlay(playerSelection) {
     }
 }
 
-function game() {
-    
-
+function updateScore() {
+    const scoreDiv = document.getElementById('score');
+    scoreDiv.textContent = `Humanity: ${playerScore} Robots: ${computerScore}`;
 }
-
-
-
 
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
+    updateScore();
 }
