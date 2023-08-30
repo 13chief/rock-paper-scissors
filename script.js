@@ -46,65 +46,31 @@ function getWinner(playerSelection, computerSelection) {
     
 }
 
-let playerScore = 0;
-let computerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
     const result = getWinner(playerSelection, computerSelection);
+    const resultDiv = document.getElementById('result');
+    resultDiv.textContent = result;
     
-    if (result.includes('Humanity')) {
-        playerScore++;
-    } else if (result.includes('Robots')) {
-        computerScore++;
-    }
-    
-    console.log(result);
-    console.log(`Player score: ${playerScore}`);
-    console.log(`Computer score: ${computerScore}`);
 }
 
-function playerPlay() {
-    let playerSelection = prompt('Choose rock, paper, or scissors: ');
 
-    // Check if player pressed "Cancel"
-    if (playerSelection === null) {
-        console.log('Input canceled. Please try again.');
-        return null;
-    }
+function playerPlay(playerSelection) {
 
     playerSelection = playerSelection.toLowerCase();
     
     if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
         return playerSelection;
-    } else {
-        console.log('Invalid input. Please try again.');
-        return null;
     }
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) { 
-        let computerSelection = getComputerChoice();
-        let playerSelection = playerPlay();
-        if (playerSelection !== null) {
-            playRound(playerSelection, computerSelection);
-        }
-    }
-    if (playerScore > computerScore) {
-        console.log("Humanity has won!");
-        resetGame();
-    } else if (playerScore < computerScore) {
-        console.log("Robots dominate!");
-        resetGame();
-    } else {
-        if (playerScore === 0 && computerScore === 0) {
-            console.log("No games played.");
-        } else {
-        console.log("It's a tie!");
-        resetGame();
-        }
-    }
+    
+
 }
+
+
+
 
 function resetGame() {
     playerScore = 0;

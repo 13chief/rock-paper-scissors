@@ -9,9 +9,12 @@
     </head>
     
     <body>
-    <button onclick="game()">Play Game</button> 
-        
+    
+    <button onclick="playRound(playerPlay('rock'), getComputerChoice())">Rock</button>
+    <button onclick="playRound(playerPlay('paper'), getComputerChoice())">Paper</button>
+    <button onclick="playRound(playerPlay('scissors'), getComputerChoice())">Scissors</button>
 
+    <div id="result"></div>
 
     </body>
 
